@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Tasks} from '../to-do-list.model';
 import {ToDoListService} from '../../services/to-do-list.service';
 
 @Component({
@@ -53,11 +52,11 @@ export class ProfileEditorComponent implements OnInit {
       });
   }
 
-  onSubmit(): any {
+  async onSubmit(): Promise<any> {
     if (this.taskId) {
-      this.taskService.updateTask(this.taskId, this.form.value);
+      await this.taskService.updateTask(this.taskId, this.form.value);
     } else {
-      this.taskService.createTask(this.form.value);
+      await this.taskService.createTask(this.form.value);
     }
     this.router.navigateByUrl('/');
   }

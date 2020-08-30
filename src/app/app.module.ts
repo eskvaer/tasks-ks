@@ -10,7 +10,7 @@ import {ToDoListService} from '../services/to-do-list.service';
 import {TopBarComponent} from './top-bar/top-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [

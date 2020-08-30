@@ -5,19 +5,21 @@ import {Router} from '@angular/router';
 import {Tasks} from '../to-do-list.model';
 import {ToDoListService} from '../../services/to-do-list.service';
 
-/**
- * @title Table with selection
- */
 @Component({
-  selector: 'to-do-list.component',
+  selector: 'task-list',
   styleUrls: ['./task-list.component.css'],
   templateUrl: './task-list.component.html',
 })
 
 export class TableSelectionExampleComponent implements OnInit {
   displayedColumns: string[] = ['number', 'name', 'date', 'isDone'];
-  dataSource = new MatTableDataSource<Tasks>([]);
-  selection = new SelectionModel<Tasks>(true, []);
+  dataSource: any = new MatTableDataSource<Tasks>([]);
+  selection: any = new SelectionModel<Tasks>(true, []);
+
+  constructor(
+    private router: Router,
+    private taskService: ToDoListService
+  ) {}
 
   ngOnInit(): any {
     this.taskService.getTasks()
@@ -26,13 +28,6 @@ export class TableSelectionExampleComponent implements OnInit {
       });
   }
 
-  constructor(
-    private router: Router,
-    private taskService: ToDoListService
-  ) {
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   onEdit(id): any {
     this.router.navigateByUrl(`/edit/${id}`);
   }
