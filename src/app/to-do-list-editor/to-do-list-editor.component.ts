@@ -57,6 +57,6 @@ export class ProfileEditorComponent implements OnInit {
     } else {
       await this.taskService.createTask(this.form.value);
     }
-    this.router.navigateByUrl('/');
+    await this.router.navigateByUrl('/');
   }
 }
