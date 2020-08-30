@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {FirebaseModule} from '../app/firebase-module';
-import {Tasks} from "../app/to-do-list.model";
+import {FirebaseModule} from '../modules/firebase-module';
+import {Tasks} from '../app/to-do-list.model';
 
 const firebase = FirebaseModule.init();
 
