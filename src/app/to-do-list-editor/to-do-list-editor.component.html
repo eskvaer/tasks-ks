@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Number:
+    <input type="text" formControlName="number">
+  </label>
+
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Date:
+    <input type="datetime-local" formControlName="date">
+  </label>
+
+  <label>
+    Description:
+    <input type="text" formControlName="description">
+  </label>
+
+  <label *ngIf="taskId">
+    Done:
+    <input type="checkbox" formControlName="isDone">
+  </label>
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+
+<hr>

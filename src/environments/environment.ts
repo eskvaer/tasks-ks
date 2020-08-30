@@ -5,15 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyB5IdZxgXhBsnxfHo6eLCpu-lEPd5RFcHE',
-    authDomain: 'to-do-list-42719.firebaseapp.com',
-    databaseURL: 'https://to-do-list-42719.firebaseio.com',
-    projectId: 'to-do-list-42719',
-    storageBucket: 'to-do-list-42719.appspot.com',
-    messagingSenderId: '851966317039',
-    appId: '1:851966317039:web:083f2fb322d0415204e61a',
-    measurementId: 'G-JL9V3P9Z52'
-  }
+    apiKey: 'AIzaSyDtU1ifHhB1QGKEjdlCJfTRqIImx2n4UFs',
+    authDomain: 'tasks-ks.firebaseapp.com',
+    databaseURL: 'https://tasks-ks.firebaseio.com',
+    projectId: 'tasks-ks',
+    storageBucket: 'tasks-ks.appspot.com',
+    messagingSenderId: '228314091781',
+    appId: '1:228314091781:web:4eaedc377c004d8234e76c'
+  },
 };
 
 /*

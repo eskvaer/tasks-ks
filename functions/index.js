@@ -1,37 +1,36 @@
+const admin = require('firebase-admin');
+
 const functions = require('firebase-functions');
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+admin.initializeApp();
 
-exports.addNumbers = functions.https.onCall((data) => {
-// [END addFunctionTrigger]
-  // [START readAddData]
-  // Numbers passed from the client.
-  const firstNumber = data.firstNumber;
-  const secondNumber = data.secondNumber;
-  // [END readAddData]
+exports.getTasks = functions.https.onCall(async () => {
+  const db = admin.firestore();
+  const tasksRef = db.collection('tasks');
 
-  // [START addHttpsError]
-  // Checking that attributes are present and are numbers.
-  if (!Number.isFinite(firstNumber) || !Number.isFinite(secondNumber)) {
-    // Throwing an HttpsError so that the client gets the error details.
-    throw new functions.https.HttpsError('invalid-argument', 'The function must be called with ' +
-        'two arguments "firstNumber" and "secondNumber" which must both be numbers.');
-  }
-  // [END addHttpsError]
+  const snapshot = await tasksRef.get();
+  const tasks = [];
+  snapshot.forEach(doc => {
+    tasks.push({id: doc.id, ...doc.data()});
+  });
+  return tasks;
+});
 
-  // [START returnAddData]
-  // returning result.
+exports.getTask = functions.https.onCall(async (taskId) => {
+  const db = admin.firestore();
+  const doc = await db.collection('tasks').doc(taskId).get();
   return {
-    firstNumber: firstNumber,
-    secondNumber: secondNumber,
-    operator: '+',
-    operationResult: firstNumber + secondNumber,
-  };
-  // [END returnAddData]
+    id: doc.id,
+    ...doc.data(),
+  }
+});
+
+exports.createTask = functions.https.onCall((task) => {
+  const db = admin.firestore();
+  return db.collection('tasks').add(task);
+});
+
+exports.updateTask = functions.https.onCall((props) => {
+  const db = admin.firestore();
+  return db.collection('tasks').doc(props.taskId).set(props.task);
 });
