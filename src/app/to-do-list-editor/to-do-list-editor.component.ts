@@ -41,7 +41,6 @@ export class ProfileEditorComponent implements OnInit {
     this.taskService.getTask(this.taskId)
       .then(data => {
         const task = data.data;
-        console.log(task);
         this.form = new FormGroup({
           number: new FormControl(task.number),
           name: new FormControl(task.name, Validators.required),
