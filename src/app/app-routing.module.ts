@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {TableSelectionExampleComponent} from './task-list/task-list.component';
+import {ProfileEditorComponent} from './to-do-list-editor/to-do-list-editor.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: TableSelectionExampleComponent },
+  { path: 'edit/:id', component: ProfileEditorComponent },
+  { path: 'add', component: ProfileEditorComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -22,11 +22,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      {path: '', component: TableSelectionExampleComponent},
-      {path: 'edit/:id', component: ProfileEditorComponent},
-      {path: 'add', component: ProfileEditorComponent},
-    ]),
     ReactiveFormsModule,
     MatTableModule,
     MatCheckboxModule,
