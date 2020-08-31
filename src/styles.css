@@ -136,3 +136,17 @@ app-top-bar h1 {
   border-radius: 2px;
   background-color: #EEEEEE;
 }
+
+.mat-tab-label-container {
+  border-radius: 10px;
+  flex-grow: 0 !important;
+  border: inset;
+}
+
+.mat-tab-label {
+  border-radius: 10px;
+}
+
+.mat-tab-label-active {
+  border: dotted lightblue;
+}

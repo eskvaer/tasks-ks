@@ -11,6 +11,8 @@ import {TopBarComponent} from './top-bar/top-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ReactiveFormsModule,
     MatTableModule,
     MatCheckboxModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ToDoListService,

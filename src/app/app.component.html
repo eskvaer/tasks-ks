@@ -1,5 +1,9 @@
 <app-top-bar></app-top-bar>
 
+<mat-tab-group animationDuration="0ms" (selectedTabChange)="onLinkClick($event)">
+  <mat-tab *ngFor="let item of locales" label="{{item.label}}">{{item.locale}}</mat-tab>
+</mat-tab-group>
+
 <div>
   <router-outlet></router-outlet>
 </div>
